@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from apps._example.models import Example
+from apps._examples.models import Example
 
 
 class ExampleSerializer(serializers.ModelSerializer):

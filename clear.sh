@@ -9,6 +9,8 @@ echo database deleted.
 
 python manage.py makemigrations
 python manage.py migrate
-python manage.py createadmin
-python manage.py createuser
-python manage.py createarticles
+python manage.py create_admin
+python manage.py create_user
+python manage.py create_articles
+python manage.py create_sections
+python manage.py create_examples

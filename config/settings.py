@@ -30,7 +30,7 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     'apps.articles',
     'apps.users',
-    'apps._example',
+    'apps._examples',
 ]
 
 DEV_APPS = [
