@@ -8,7 +8,7 @@ djangorestframework==3.11.0
 djangorestframework-simplejwt==4.4.0
 ForgeryPy==0.1
 idna==2.9
-Pillow==7.1.2
+Pillow==8.2.0
 PyJWT==1.7.1
 python-dotenv==0.13.0
 pytz==2020.1
