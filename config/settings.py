@@ -62,8 +62,10 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 if DEBUG:
     INSTALLED_APPS += DEV_APPS
 
-# DOMAINS
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '*')
+# WHITELIST
+ALLOWED_HOSTS = ['*']
+
+# DOMAIN
 DOMAIN = os.getenv('DOMAIN')
 
 # MANAGER CONFIGURATION
@@ -75,8 +77,7 @@ SUPER_ADMIN_PASSWORD = os.getenv("SUPER_ADMIN_PASSWORD")
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#admins
 ADMINS = [
-    ('Sol Rosca', 'sol.rosca@gmail.com'),
-    ('Nathan Latino', 'nathan.latino@gmail.com'),
+    ('Sol Rosca', 'sol.rosca@arcanite.ch'),
 ]
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#managers
@@ -87,9 +88,13 @@ MANAGERS = ADMINS
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    "default": {
+        'ENGINE': os.getenv('DATABASE_ENGINE', 'django.db.backends.sqlite3'),
+        'NAME': os.getenv('DATABASE_NAME', 'db.sqlite3'),
+        'USER': os.getenv('DATABASE_USER', ''),
+        'PASSWORD': os.getenv('DATABASE_PASSWORD', ''),
+        'HOST': os.getenv('DATABASE_HOST', 'localhost'),  # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        'PORT': os.getenv('DATABASE_PORT', ''),  # Set to empty string for default.
     }
 }
 
@@ -185,14 +190,10 @@ PASSWORD_HASHERS = [
 # https://docs.djangoproject.com/en/dev/ref/settings/#auth-password-validators
 # ------------------------------------------------------------------------------
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation'
-                '.UserAttributeSimilarityValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
     {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
     {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
-    {
-        'NAME': 'django.contrib.auth.password_validation'
-                '.NumericPasswordValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
 # AUTHENTICATION CONFIGURATION
