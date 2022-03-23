@@ -63,25 +63,17 @@ if DEBUG:
     INSTALLED_APPS += DEV_APPS
 
 # WHITELIST
+# ------------------------------------------------------------------------------
 ALLOWED_HOSTS = ['*']
 
 # DOMAIN
+# ------------------------------------------------------------------------------
 DOMAIN = os.getenv('DOMAIN')
 
-# MANAGER CONFIGURATION
+# ADMIN
 # ------------------------------------------------------------------------------
 ADMIN_EMAIL = os.getenv("ADMIN_EMAIL")
 ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD")
-SUPER_ADMIN_EMAIL = os.getenv("SUPER_ADMIN_EMAIL")
-SUPER_ADMIN_PASSWORD = os.getenv("SUPER_ADMIN_PASSWORD")
-
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#admins
-ADMINS = [
-    ('Sol Rosca', 'sol.rosca@arcanite.ch'),
-]
-
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#managers
-MANAGERS = ADMINS
 
 # # DATABASE CONFIGURATION
 # ------------------------------------------------------------------------------
@@ -261,13 +253,13 @@ SIMPLE_JWT = {
 CORS_ORIGIN_ALLOW_ALL = DEBUG
 CORS_ORIGIN_WHITELIST = DOMAIN,
 
-# DEV
-# ------------------------------------------------------------------------------
-
-LOREM_API = 'https://jaspervdj.be/lorem-markdownum/markdown.txt'
-DEV_IMAGES_API = "https://picsum.photos"
-
 # SSL
 # ------------------------------------------------------------------------------
 USE_X_FORWARDED_HOST = True
 SECURE_PROXY_SSL_HEADER = {} if DEBUG else ('HTTP_X_FORWARDED_PROTO', 'https')
+
+
+# MOCK
+# ------------------------------------------------------------------------------
+LOREM_API = 'https://jaspervdj.be/lorem-markdownum/markdown.txt'
+DEV_IMAGES_API = "https://picsum.photos"

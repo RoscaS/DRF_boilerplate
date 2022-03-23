@@ -2,10 +2,10 @@ Django<4.1
 django-cors-headers<3.12
 django-extensions<3.2
 djangorestframework<3.14
-djangorestframework-simplejwt<5.2
-ForgeryPy==0.1
-Pillow<9.1
 python-dotenv<0.20.0
+psycopg2<2.10
+
+ForgeryPy==0.1
 requests<2.28
 urllib3<1.27
-psycopg2<2.10
+Pillow<9.1
